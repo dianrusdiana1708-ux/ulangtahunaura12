@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Naura 🎂</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#1e1e2f,#3b1c4a);
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+p{
+    max-width:700px;
+    line-height:1.8;
+}
+
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d88;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+.nav{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:100;
+}
+
+.nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+
+.gallery{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.gallery img{
+    width:250px;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,255,255,.2);
+}
+
+.countdown{
+    font-size:2rem;
+    margin-top:20px;
+    color:#ffd700;
+}
+
+audio{
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#message">Message</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#wish">Wish</a>
+</div>
+
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<!-- HOME -->
+<section id="home">
+    <h1>🎉 Happy Birthday Naura Hasna Fayruziah 🎂</h1>
+    <p>Selamat ulang tahun untuk seseorang yang spesial ✨</p>
+    <button class="btn" onclick="scrollToSection('about')">Mulai 💖</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h1>Tentang Naura 🌸</h1>
+    <p>
+        Naura adalah sosok yang hebat, kuat, dan selalu membawa kebahagiaan 
+        untuk orang-orang di sekitarnya.
+    </p>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+    <h1>Ucapan & Pesan 💌</h1>
+    <p>
+        Semoga di umur yang baru ini semua impianmu tercapai,
+        selalu sehat, bahagia, dan dikelilingi orang baik.
+    </p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h1>Galeri Kenangan 📸</h1>
+    <div class="gallery">
+        <img src="foto1.jpg">
+        <img src="foto2.jpg">
+        <img src="foto3.jpg">
+    </div>
+</section>
+
+<!-- WISH -->
+<section id="wish">
+    <h1>Birthday Wish 🎁</h1>
+    <p>
+        "Semoga hidupmu selalu dipenuhi cinta, tawa, dan kebahagiaan."
+    </p>
+    <div class="countdown" id="countdown"></div>
+</section>
+
+<!-- END -->
+<section id="end">
+    <h1>Terima Kasih ❤️</h1>
+    <p>
+        Terima kasih sudah menjadi pribadi yang luar biasa.
+        Selamat ulang tahun sekali lagi, Naura 🎂✨
+    </p>
+</section>
+
+<script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({
+        behavior:'smooth'
+    });
+}
+
+// Countdown ke ulang tahun
+const targetDate = new Date("July 20, 2026 00:00:00").getTime();
+
+const x = setInterval(function(){
+    let now = new Date().getTime();
+    let distance = targetDate - now;
+
+    let days = Math.floor(distance / (1000*60*60*24));
+    let hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    let minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+
+    document.getElementById("countdown").innerHTML =
+        days + " Hari " + hours + " Jam " + minutes + " Menit";
+
+    if(distance < 0){
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "🎉 Happy Birthday!";
+    }
+},1000);
+</script>
+
+</body>
+</html>
