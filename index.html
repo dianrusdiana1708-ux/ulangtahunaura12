@@ -186,6 +186,17 @@ const x = setInterval(function(){
         document.getElementById("countdown").innerHTML = "🎉 Happy Birthday!";
     }
 },1000);
+
+const music = document.getElementById("bgMusic");
+
+window.onload = function() {
+    music.play().catch(() => {
+        document.body.addEventListener("click", function () {
+            music.play();
+        }, { once:true });
+    });
+};
+
 </script>
 
 </body>
